@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    background-color: ba;
+    font-family: "Noto sans", sans-serif;
+    background: #091a79;
+background: linear-gradient(65deg, rgba(9, 26, 121, 1) 35%, rgba(217, 0, 255, 1) 100%);
+}
+
+#taskName:focus{
+    outline: none;
+}

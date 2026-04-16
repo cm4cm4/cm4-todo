@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tailwindstyle.css">
+    <title>Todo</title>
+</head>
+<body>
+    <div class=" flex justify-center h-screen items-center text-white">
+        <div id="todo-wrap" class="flex flex-col p-3 rounded-2xl shadow-2xl gap-1 bg-[#1a1a1a]">
+            <h1 class="text-3xl font-bold text-center  e ">Todo</h1>
+            <form class="flex flex-row gap-2">
+                <input type="text" class="bg-[#2a2a2a] shadow-lg   rounded-3xl  p-1" id="taskName" autocomplete="off" placeholder="Task">
+                <button type="submit" class="bg-purple-800">Add </button>
+            </form>
+        </div>
+    </div>
+    <script src="outTS/script.js"></script>
+</body>
+</html>
