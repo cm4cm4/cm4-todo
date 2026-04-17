@@ -14,8 +14,37 @@ background: linear-gradient(65deg, rgba(9, 26, 121, 1) 35%, rgba(217, 0, 255, 1)
 
 #todoWrap{
     min-width: 640px;
+    max-width: 500px;
+}
+
+#todoList{
+    margin: 0px;
 }
 
 .todoItem{
     list-style-type: none;
+    @apply flex flex-row items-center p-1 gap-2 ;        
+     
+}
+
+
+.todoDeleteButton{
+    @apply flex-1 ml-auto p-1.5 rounded bg-red-900 hover:bg-red-700;
+    transition: background-color 0.2s;
+}
+
+.todoTextZone{
+    @apply flex flex-row gap-2  flex-5 items-center; 
+}
+.todoComplete{
+    text-decoration: line-through;
+    @apply text-gray-400;
+}
+
+#addTaskButton{
+    transition: background-color 0.2s;
+}
+
+.todoCheckBox{
+    @apply border-none;
 }
