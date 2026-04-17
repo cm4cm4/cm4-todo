@@ -10,12 +10,16 @@
     <div class=" flex justify-center h-screen items-center text-white">
         <div id="todo-wrap" class="flex flex-col p-3 rounded-2xl shadow-2xl gap-1 bg-[#1a1a1a]">
             <h1 class="text-3xl font-bold text-center  e ">Todo</h1>
-            <form class="flex flex-row gap-2">
+            <div class="flex flex-row gap-2">
                 <input type="text" class="bg-[#2a2a2a] shadow-lg   rounded-3xl  p-1" id="taskName" autocomplete="off" placeholder="Task">
-                <button type="submit" class="bg-purple-800">Add </button>
-            </form>
+                <button id="addTaskButton" class="bg-purple-600 rounded-2xl p-2">Add </button>
+            </div>
+            <ul id="todoList">
+                <li class="todoItem"></li>
+            </ul>
+       
         </div>
     </div>
-    <script src="outTS/script.js"></script>
+    <script type="module" src="outTS/script.js"></script>
 </body>
 </html>

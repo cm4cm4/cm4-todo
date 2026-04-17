@@ -11,3 +11,11 @@ background: linear-gradient(65deg, rgba(9, 26, 121, 1) 35%, rgba(217, 0, 255, 1)
 #taskName:focus{
     outline: none;
 }
+
+#todoWrap{
+    min-width: 640px;
+}
+
+.todoItem{
+    list-style-type: none;
+}

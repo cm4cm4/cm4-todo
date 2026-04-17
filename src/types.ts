@@ -8,3 +8,4 @@ export type Task = {
     readonly Id: TaskId
 }
 
+export type TaskList = Array<Task>
