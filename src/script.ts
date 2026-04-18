@@ -73,7 +73,7 @@ function createTaskElement(task: Task): void{
     todoDeleteButton.addEventListener("click", (e) => {
         todoItem.remove()
         const tasks: TaskList = getCurrentTasks()
-        localStorage.setItem("tasks",JSON.stringify(tasks.filter((item) => item.Id == task.Id)))
+        localStorage.setItem("tasks",JSON.stringify(tasks.filter((item) => item.Id != task.Id)))
     })
     console.log("im also ran")
 }
