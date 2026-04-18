@@ -7,14 +7,17 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-red-900: oklch(39.6% 0.141 25.723);
     --color-purple-600: oklch(55.8% 0.288 302.321);
+    --color-purple-700: oklch(49.6% 0.265 301.924);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-bold: 700;
     --radius-2xl: 1rem;
-    --radius-3xl: 1.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -174,6 +177,9 @@
   .h-screen {
     height: 100vh;
   }
+  .w-fit {
+    width: fit-content;
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -192,11 +198,11 @@
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
-  }
-  .rounded-3xl {
-    border-radius: var(--radius-3xl);
   }
   .bg-\[\#1a1a1a\] {
     background-color: #1a1a1a;
@@ -204,8 +210,8 @@
   .bg-\[\#2a2a2a\] {
     background-color: #2a2a2a;
   }
-  .bg-purple-600 {
-    background-color: var(--color-purple-600);
+  .bg-purple-700 {
+    background-color: var(--color-purple-700);
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
@@ -238,6 +244,13 @@
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .hover\:bg-purple-600 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-purple-600);
+      }
+    }
+  }
 }
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 body {
@@ -251,9 +264,49 @@ body {
 }
 #todoWrap {
   min-width: 640px;
+  max-width: 500px;
+}
+#todoList {
+  margin: 0px;
 }
 .todoItem {
   list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--spacing) * 2);
+  padding: calc(var(--spacing) * 1);
+}
+.todoDeleteButton {
+  margin-left: auto;
+  flex: 1;
+  border-radius: 0.25rem;
+  background-color: var(--color-red-900);
+  padding: calc(var(--spacing) * 1.5);
+  &:hover {
+    @media (hover: hover) {
+      background-color: var(--color-red-700);
+    }
+  }
+  transition: background-color 0.2s;
+}
+.todoTextZone {
+  display: flex;
+  flex: 5;
+  flex-direction: row;
+  align-items: center;
+  gap: calc(var(--spacing) * 2);
+}
+.todoComplete {
+  text-decoration: line-through;
+  color: var(--color-gray-400);
+}
+#addTaskButton {
+  transition: background-color 0.2s;
+}
+.todoCheckBox {
+  --tw-border-style: none;
+  border-style: none;
 }
 @property --tw-font-weight {
   syntax: "*";
