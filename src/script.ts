@@ -4,9 +4,14 @@ const addTaskButton = document.getElementById("addTaskButton")
 const taskName = document.getElementById("taskName") as HTMLInputElement
 const taskListElement = document.getElementById("todoList")
 
-for (const task of JSON.parse(localStorage.getItem("tasks") || "[]")){
+function getCurrentTasks(): TaskList{
+    return JSON.parse(localStorage.getItem("tasks") || "[]")
+}
+
+for (const task of getCurrentTasks()){
     createTaskElement(task)
 }
+
 
 
 
@@ -25,6 +30,11 @@ function createTaskElement(task: Task): void{
     const todoText = document.createElement("p")
     todoText.className = "todoText"
     todoText.append(task.Task)
+    // make text crossed out if task is finished
+    if (task.Status == "finished"){
+        todoText.classList.add("todoComplete")
+        todoCheckBox.checked = true
+    }
 
     todoTextZone.appendChild(todoCheckBox)
     todoTextZone.appendChild(todoText)
@@ -41,15 +51,28 @@ function createTaskElement(task: Task): void{
     todoCheckBox.addEventListener("change", (e) => {
         if (e.currentTarget?.checked){
             todoText.classList.add("todoComplete")
+            // update task to mark as finished
+            localStorage.setItem("tasks",JSON.stringify(getCurrentTasks().filter((item) => {
+                if (item.Id === task.Id){
+                    item.Status = "finished"
+                    return item
+                }
+            })))
         }
         else{
             todoText.classList.remove("todoComplete")
+            localStorage.setItem("tasks",JSON.stringify(getCurrentTasks().filter((item) => {
+                if (item.Id === task.Id){
+                    item.Status = "unfinished"
+                    return item
+                }
+            })))
         }
     })
 
     todoDeleteButton.addEventListener("click", (e) => {
         todoItem.remove()
-        const tasks: TaskList = JSON.parse(localStorage.getItem("tasks") || "[]")
+        const tasks: TaskList = getCurrentTasks()
         localStorage.setItem("tasks",JSON.stringify(tasks.filter((item) => item.Id == task.Id)))
     })
     console.log("im also ran")
@@ -63,7 +86,7 @@ function addTask(task: Task): void{
         localStorage.setItem("tasks", JSON.stringify([]))
     }
 
-    let tasksList: TaskList = JSON.parse(localStorage.getItem("tasks") || "[]")
+    let tasksList: TaskList = getCurrentTasks()
     tasksList.push(task)
     console.log("im ran")
     localStorage.setItem("tasks", JSON.stringify(tasksList))
