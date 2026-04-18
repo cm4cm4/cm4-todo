@@ -1,5 +1,6 @@
 # Simple localstorage todo app
 todo app with localstorsge to keep track of tasks
+
 Demo: soon with github pages
 
 # Development
